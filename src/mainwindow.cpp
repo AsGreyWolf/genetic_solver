@@ -92,8 +92,12 @@ MainWindow::MainWindow(QWidget *parent)
 					            yAxisMean.setRange(0, maxMean);
 					            {
 						            QString lbl = QString::number(minMin) + "[";
-						            for (auto &a : minValues)
-							            lbl += QString::number(a) + ", ";
+						            bool first = true;
+						            for (auto &a : minValues) {
+							            if (!first)
+								            lbl += QString::number(a) + ", ";
+							            first = false;
+						            }
 						            lbl += ']';
 						            ui->bestLabel->setText(lbl);
 					            }
